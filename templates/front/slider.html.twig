@@ -1,8 +1,37 @@
 
+
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+{{parent()}}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock %}
+
+
+{% block body %}
+    {% for g in genres %}
+
+    <h2>{{ g.name }}</h2>
+    <div class='slider'>
+
+        {% for f in g.films %}
+        <div>
+            <img src='{{f.media}}'>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+{% endblock %}
+
+
 {% block javascripts %}
+{{parent()}}
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <script>
-$('.responsive').slick({
-  dots: true,
+$('.slider').slick({
+  dots: false,
   infinite: false,
   speed: 300,
   slidesToShow: 4,

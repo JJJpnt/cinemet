@@ -10,11 +10,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class FrontController extends AbstractController
 {
     /**
-     * @Route("/front", name="app_front")
+     * @Route("/", name="app_front")
      */
     public function index(GenreRepository $gr): Response
     {
         return $this->render('front/index.html.twig', [
+            'controller_name' => 'FrontController',
+            'genres' => $gr->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/sliders", name="sliders")
+     */
+    public function sliders(GenreRepository $gr): Response
+    {
+        return $this->render('front/slider.html.twig', [
             'controller_name' => 'FrontController',
             'genres' => $gr->findAll(),
         ]);
