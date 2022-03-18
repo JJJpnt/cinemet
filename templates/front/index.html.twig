@@ -13,7 +13,7 @@
 
 
 
-    {# <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello {{ controller_name }}! ✅</h1>
 
     {% for g in genres %}
 
@@ -21,8 +21,10 @@
 
         {% for f in g.films %}
             <h5>{{ f.name }}</h5>
+            <p>{{ f.media|default('missing.jpg') }}</p>
+            <p>{{ f.synopsis|default('synopsis manquant')|capitalize }}</p>
         {% endfor %}
-    {% endfor %} #}
+    {% endfor %}
 
 </div>
 

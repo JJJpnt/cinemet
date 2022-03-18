@@ -17,7 +17,7 @@
     <div class='slider'>
 
         {% for f in g.films %}
-        <div>
+        <div class='{{'slide-film-' ~ f.id}}'>
             <img src='{{f.media}}'>
         </div>
         {% endfor %}
